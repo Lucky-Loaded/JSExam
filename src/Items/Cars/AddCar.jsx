@@ -12,7 +12,7 @@ const initialValue = {
     picture: "",
     count: 0,
     carType: "",
-    pricePerDay: 0,
+    pricePerDay: 0
 }
 
 const AddCar = () => {
@@ -37,7 +37,7 @@ const AddCar = () => {
     return (
         <Container maxWidth="sm">
             <Box my={5}>
-                <Typography variant="h5" align="center" style={{ paddingTop: "30px" }}>Add Client Details</Typography>
+                <Typography variant="h5" align="center" style={{ paddingTop: "40px" }}>Add Client Details</Typography>
                 <FormGroup>
                     <FormControl>
                         <InputLabel>Brand</InputLabel>

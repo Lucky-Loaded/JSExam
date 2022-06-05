@@ -5,19 +5,19 @@ import { Table, TableCell, TableRow, TableHead, TableBody, makeStyles, Button } 
 
 const useStyle = makeStyles({
     table: {
-        width: '80%',
-        margin: '50px 100px 100px 140px',
+        width: '70%',
+        margin: '40px 0px 0px 200px',
     },
     thead: {
         '& > *': {
             background: '#000000',
-            color: '#FFFFFF',
-            fontSize: '16px'
+            color: '#d6d6d6',
+            fontSize: '14px'
         }
     },
     trow: {
         '& > *': {
-            fontSize: '16px'
+            fontSize: '14px'
         }
     }
 })
@@ -25,7 +25,7 @@ const useStyle = makeStyles({
 const Cars = () => {
     const classes = useStyle();
 
-    const [car, setVehicles] = useState([]);
+    const [car, setCars] = useState([]);
 
     useEffect(() => {
         getCars();
@@ -34,7 +34,7 @@ const Cars = () => {
     const getCars = async () => {
         const response = await getAll("cars");
 
-        seCars(response.data);
+        setCars(response.data);
     }
 
     const deleteData = async (id) => {
@@ -44,7 +44,7 @@ const Cars = () => {
 
     return (
         <div>
-            <Button variant="contained" color="primary" style={{ margin: '10px 20px' }} component={Link} to={`/addCar`}>Add Car</Button>
+            <Button variant="contained" style={{ background:'#00FF00', color:'#FFFFFF', margin: '10px 20px' }} item={Link} to={`/addCar`}>Add Car</Button>
 
             <Table className={classes.table}>
                 <TableHead>
@@ -77,15 +77,15 @@ const Cars = () => {
                                 <TableCell>{data.carType}</TableCell>
                                 <TableCell>{data.pricePerDay}</TableCell>
                                 <TableCell>
-                                    <Button variant="contained" color="primary" style={{ margin: '0px 20px' }} component={Link} to={`/rentCar/${data.id}`}
+                                    <Button variant="contained" style={{ background:'#00FF00', color:'#FFFFFF', margin: '5px 5px' }} item={Link} to={`/rentCar/${data.id}`}
                                     disabled={
                                         data.count > 0 
                                         ? false
                                         : true
                                     }
                                     >Rent</Button>
-                                    <Button variant="contained" color="primary" style={{ margin: '0px 20px' }} component={Link} to={`/editCar/${data.id}`}>Edit</Button>
-                                    <Button variant="contained" color="secondary" style={{ margin: '0px 20px' }} onClick={() => deleteData(data.id)}>Delete</Button>
+                                    <Button variant="contained" style={{ background:'#00FF00', color:'#FFFFFF', margin: '5px 5px' }} item={Link} to={`/editCar/${data.id}`}>Edit</Button>
+                                    <Button variant="contained" style={{ background:'#ff2424', color:'#FFFFFF', margin: '5px 5px' }} onClick={() => deleteData(data.id)}>Delete</Button>
                                 </TableCell>
                             </TableRow>
                         ))

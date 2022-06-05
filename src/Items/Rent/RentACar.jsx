@@ -4,14 +4,14 @@ import { add, getAll, getById, edit } from '../../service/Service';
 import { useNavigate, useParams } from 'react-router-dom';
 
 const initialValue = {
-    customerId: "",
-    vehicleId: "",
+    clientId: "",
+    carId: "",
     startDate: "",
     endDate: "",
     price: 0
 }
 
-const initialVehicle = {
+const initialCar = {
     brand: "",
     model: "",
     constructionYear: "",
@@ -19,7 +19,7 @@ const initialVehicle = {
     seatsNumber: 0,
     picture: "",
     count: 0,
-    vehicleType: "",
+    carType: "",
     pricePerDay: 0,
 }
 
@@ -27,11 +27,11 @@ const initialVehicle = {
 const RentACar = () => {
 
     const [rent, setRent] = useState(initialValue);
-    const [vehicle, setVehicle] = useState(initialVehicle);
-    const { customerId, vehicleId, startDate, endDate, price } = rent;
+    const [car, setCar] = useState(initialCar);
+    const { clientId, carId, startDate, endDate, price } = rent;
     const { brand, model, constructionYear, 
         fuelType, seatsNumber, picture,
-        count, vehicleType, pricePerDay} = vehicle;
+        count, carType, pricePerDay} = car;
     const { id } = useParams();
 
     const history = useNavigate();
@@ -45,19 +45,19 @@ const RentACar = () => {
     }
 
     async function getData() {
-        const response = await getById("vehicles", id);
+        const response = await getById("cars", id);
 
-        setVehicle(response.data);
+        setCar(response.data);
     }
 
     const addRentDetails = async () => {
         rent.price = checkRentalPeriod();
 
-        const vehicle = await getById("vehicles", id);
+        const car = await getById("cars", id);
 
-        vehicle.data.count -= 1;
+        car.data.count -= 1;
 
-        await edit("vehicles", id, vehicle.data);
+        await edit("cars", id, car.data);
 
         await add("rentalEvents", rent);
 
@@ -89,15 +89,15 @@ const RentACar = () => {
     return (
         <Container maxWidth="sm">
             <Box my={5}>
-                <Typography variant="h5" align="center" style={{ paddingTop: "30px" }}>Add Customer Details</Typography>
+                <Typography variant="h5" align="center" style={{ paddingTop: "30px" }}>Add Client Details</Typography>
                 <FormGroup>
                     <FormControl>
                         <InputLabel>Car</InputLabel>
                         <Input value={brand + " " + model}></Input>
                     </FormControl>
                     <FormControl>
-                        <InputLabel>Customer Id</InputLabel>
-                        <Input onChange={(e) => onValueChange(e)} type="number" name="customerId" value={customerId} />
+                        <InputLabel>Client Id</InputLabel>
+                        <Input onChange={(e) => onValueChange(e)} type="number" name="clientId" value={clientId} />
                     </FormControl>
                     <FormControl>
                         <InputLabel>Start Date</InputLabel>
@@ -113,8 +113,8 @@ const RentACar = () => {
                     </FormControl>
                     <div><br /></div>
                     <Box my={3}>
-                        <Button variant="contained" onClick={() => addRentDetails()} color="primary" align="center">Add Customer</Button>
-                        <Button onClick={() => history("/vehicles")} variant="contained" color="secondary" align="center" style={{ margin: '0px 20px' }}>Cancel</Button>
+                        <Button variant="contained" onClick={() => addRentDetails()} color="primary" align="center">Add Client</Button>
+                        <Button onClick={() => history("/cars")} variant="contained" color="secondary" align="center" style={{ margin: '0px 20px' }}>Cancel</Button>
                     </Box>
                 </FormGroup>
             </Box>

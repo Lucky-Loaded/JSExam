@@ -1,0 +1,52 @@
+{
+  "clients": [
+    {
+      "id": 1,
+      "email": "dmytro-bystrov@gmail.com",
+      "fullName": "Dmytro Bystrov",
+      "phoneNumber": "380971767244"
+    },
+    {
+      "id": 2,
+      "fullName": "Daniil Dmytrov",
+      "email": "ddmytrov@gmail.com",
+      "phoneNumber": "380961541299"
+    }
+  ],
+  "cars": [
+    {
+      "id": 2,
+      "brand": "Lada",
+      "model": "06",
+      "constructionYear": "1998",
+      "fuelType": "Petrol",
+      "seatsNumber": "4",
+      "picture": "lada.jpg",
+      "count": "100",
+      "carType": "Luxury",
+      "pricePerDay": 100
+    },
+    {
+      "id": 3,
+      "brand": "Ford",
+      "model": "Falcon",
+      "constructionYear": "1960",
+      "fuelType": "Petrol",
+      "seatsNumber": "2",
+      "picture": "ford.jpg",
+      "count": "1",
+      "carType": "Economy",
+      "pricePerDay": 1050
+    }
+  ],
+  "rentalEvents": [
+    {
+      "id": 1,
+      "clientId": 1,
+      "carId": 2,
+      "startDate": "2021-12-11T11:50:08.118Z",
+      "endDate": "2022-01-1T11:50:08.118Z",
+      "price": 100.2
+    }
+  ]
+}

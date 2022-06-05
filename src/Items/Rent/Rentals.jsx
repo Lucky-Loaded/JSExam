@@ -5,19 +5,19 @@ import { Table, TableCell, TableRow, TableHead, TableBody, makeStyles, Button } 
 
 const useStyle = makeStyles({
     table: {
-        width: '80%',
-        margin: '50px 100px 100px 140px',
+        width: '70%',
+        margin: '40px 0px 0px 200px',
     },
     thead: {
         '& > *': {
             background: '#000000',
             color: '#FFFFFF',
-            fontSize: '16px'
+            fontSize: '14px'
         }
     },
     trow: {
         '& > *': {
-            fontSize: '16px'
+            fontSize: '14px'
         }
     }
 })
@@ -50,8 +50,8 @@ const Rentals = () => {
                         <TableCell>ID</TableCell>
                         <TableCell>Start Date</TableCell>
                         <TableCell>End Date</TableCell>
-                        <TableCell>Vehicle</TableCell>
-                        <TableCell>Customer</TableCell>
+                        <TableCell>Car</TableCell>
+                        <TableCell>Client</TableCell>
                         <TableCell>Price</TableCell>
                         <TableCell></TableCell>
                     </TableRow>
@@ -63,11 +63,11 @@ const Rentals = () => {
                                 <TableCell>{data.id}</TableCell>
                                 <TableCell>{data.startDate}</TableCell>
                                 <TableCell>{data.endDate}</TableCell>
-                                <TableCell>{data.vehicleId}</TableCell>
-                                <TableCell>{data.customerId}</TableCell>
+                                <TableCell>{data.carId}</TableCell>
+                                <TableCell>{data.clientId}</TableCell>
                                 <TableCell>{data.price}</TableCell>
                                 <TableCell>
-                                    <Button variant="contained" color="secondary" style={{ margin: '0px 20px' }} onClick={() => deleteData(data.id)}>Delete</Button>
+                                    <Button variant="contained" style={{ background:'#ff2424', color:'#FFFFFF', margin: '5px 5px' }} onClick={() => deleteData(data.id)}>Delete</Button>
                                 </TableCell>
                             </TableRow>
                         ))

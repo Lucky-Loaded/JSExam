@@ -17,7 +17,7 @@ function Header() {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav ms-auto">
                         <li className="nav-item">
-                            <Link className="nav-link" to={"/"}>Vehicles</Link>
+                            <Link className="nav-link" to={"/"}>Cars</Link>
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link" to={"/clients"}>Clients</Link>
